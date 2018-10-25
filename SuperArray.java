@@ -7,21 +7,17 @@ public class SuperArray{
 	    data = new String[10];
 	  }
 
-
 	  public void clear(){
 	    size=0;
 	  }
-
 
 	  public int size(){
 	    return size;
 	  }
 
-
 	  public boolean isEmpty(){
 	    return size ==0;
 	  }
-
 
 	  public boolean add(String str){
 			if (data.length <= size) resize();
@@ -29,7 +25,6 @@ public class SuperArray{
 	    size++;
 			return true;
 	  }
-
 
 	  public String toString(){
 	    String out = "{";
@@ -40,12 +35,10 @@ public class SuperArray{
 	    return out + "}";
 	  }
 
-
 	  public String get(int index){
 	    if (index < 0 || index >= size()) return null;
 	    return ""+ data[index];
 	  }
-
 
 	  public String set(int index, String str){
 	    if (index < 0 || index >= size()) return null;
@@ -55,11 +48,42 @@ public class SuperArray{
 
 		private void resize() {
 			String[] newData = new String[(size + 1) * 2];
-			for (int i = 0; i < this.size(); i++){
+			for (int i = 0; i < size(); i++){
 				newData[i] = data[i];
 			}
 			this.data = newData;
     }
 
+		public boolean contains(String target){
+			for (int  i = 0; i < size(); i++){
+      if (get(i).equals(target)){
+        return true;
+      }
+    }
+    return false;
+		}
 
+		public int indexOf(String target){
+			if (this.contains(target)){
+				for (int  i = 0; i < size(); i++){
+					if (get(i).equals(target)){
+		        return i;
+		      }
+				}
+			}
+			return -1;
+
+		}
+
+		public int lastIndexOf(String target){
+			if (this.contains(target)){
+				for (int  i = size()-1; i > -1; i--){
+					if (get(i).equals(target)){
+		        return i;
+		      }
+				}
+			}
+			return -1;
+
+		}
 	}
