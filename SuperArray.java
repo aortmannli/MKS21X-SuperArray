@@ -99,15 +99,24 @@ public class SuperArray{
 	      size++;
 	    }
 
-
-
-
-		/*public String remove(int){
-
+		public String remove(int index){
+		if (data.length == size()) resize();
+    if (index < 0 || index > size()){
+			System.out.println("Error: index out of bounds");
+			return null;
+		}
+    String str = data[index];
+    for (int i = index; i < size()-1; i++){
+      data[i] = data[i+1];
+    }
+    size--;
+    return "Index:  "+index+"    Value removed:  "+str;
 		}
 
-		public boolean remove(String){
-
-		}*/
+		public boolean remove(String str){
+			if (!this.contains(str)) return false;
+			remove(this.indexOf(str));
+			return true;
+		}
 
 	}

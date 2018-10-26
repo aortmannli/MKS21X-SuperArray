@@ -70,6 +70,17 @@ public class Driver{
   System.out.println("SA's size (should return 13):                         " + SA.size() + "\n");
   SA.add(0,"yote");
   System.out.println("Index 0 should be yote \n" + SA);
-  System.out.println("SA's size (should return 14):                         " + SA.size() + "\n");
+  System.out.println("SA's size (should return 14):                         " + SA.size() + "\n \n \n");
+
+  /***************************************************************************/
+  System.out.println("Testing remove.");
+  System.out.println(SA);
+  System.out.println(SA.remove(5)+"\n"+ SA);
+  System.out.println("Index: 90 should print null Value: "+SA.remove(90)+"\n"+ SA);
+  System.out.println("\n \n");
+  System.out.println(SA);
+  System.out.println("Value removed: yeet" + SA.remove("yeet")+"\n"+ SA+"\n");
+  System.out.println("Value removed: 666" + SA.remove("666")+"\n"+ SA+"\n");
+  System.out.println("Value: line should return false           "+SA.remove("line")+"\n"+ SA);
   }
 }
