@@ -47,7 +47,7 @@ public class Driver{
 
 
   /***************************************************************************/
-  System.out.println("Testing index methods");
+  System.out.println("Testing index methods.");
   System.out.println("Value: coffee         Index(should print 7):            " + SA.indexOf("coffee"));
   System.out.println("Value: beep boop      Index(should print 4):            " + SA.indexOf("beep boop"));
   System.out.println("Value: 38             Index(should print 0):            " + SA.indexOf("38"));
@@ -57,5 +57,13 @@ public class Driver{
   System.out.println("Value: coffee         Last Index(should print 8):       " + SA.lastIndexOf("coffee"));
   System.out.println("Value: peach          Last Index(should print 9):       " + SA.lastIndexOf("peach"));
   System.out.println("Value: yeet           Last Index(should print -1):      " + SA.lastIndexOf("yeet"));
+
+
+
+  /***************************************************************************/
+  System.out.println("Testing add with index.");
+  SA.add(3,"yeet");
+  System.out.println(SA);
+
   }
 }
