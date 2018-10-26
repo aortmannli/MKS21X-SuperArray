@@ -35,6 +35,14 @@ public class SuperArray{
 	    return out + "}";
 	  }
 
+		public String toStringDebug(){
+    String out = "{";
+    for (String i:  data){
+      out += i + ", ";
+    }
+    return out.substring(0,out.length()-2) + "}";
+  }
+
 	  public String get(int index){
 	    if (index < 0 || index >= size()) return null;
 	    return ""+ data[index];
