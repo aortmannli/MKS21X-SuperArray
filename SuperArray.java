@@ -87,15 +87,20 @@ public class SuperArray{
 		}
 
 		public void add(int index ,String str){
-			if(index < 0 || index > size()){
-	      System.out.println("Error: index out of bounds");
+			if (data.length == size()) resize();
+	    if (index < 0 || index > size()){
+				System.out.println("Error: index out of bounds");
+	    }else{
+	      for (int i = size(); i > 0; i--){
+	        if (i > index) data[i] = data[i - 1];
+	      }
+			}
+	      data[index] = str;
+	      size++;
 	    }
-	    data[size] = data[size - 1];
-	    for (int i = size - 2; i >= index; i--){
-	      data[i] = data[i+1];
-	    }
-	    data[index] = str;
-		}
+
+
+
 
 		/*public String remove(int){
 

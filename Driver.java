@@ -56,14 +56,20 @@ public class Driver{
   System.out.println("Value: beep boop      Last Index(should print 10):      " + SA.lastIndexOf("beep boop"));
   System.out.println("Value: coffee         Last Index(should print 8):       " + SA.lastIndexOf("coffee"));
   System.out.println("Value: peach          Last Index(should print 9):       " + SA.lastIndexOf("peach"));
-  System.out.println("Value: yeet           Last Index(should print -1):      " + SA.lastIndexOf("yeet"));
+  System.out.println("Value: yeet           Last Index(should print -1):      " + SA.lastIndexOf("yeet")+ "\n \n");
 
 
 
   /***************************************************************************/
   System.out.println("Testing add with index.");
-  SA.add(3,"yeet");
-  System.out.println(SA);
 
+  System.out.println(SA);
+  System.out.println("SA's size (should return 12):                         " + SA.size() + "\n");
+  SA.add(3,"yeet");
+  System.out.println("Index 3 should be yeet \n" + SA);
+  System.out.println("SA's size (should return 13):                         " + SA.size() + "\n");
+  SA.add(0,"yote");
+  System.out.println("Index 0 should be yote \n" + SA);
+  System.out.println("SA's size (should return 14):                         " + SA.size() + "\n");
   }
 }
