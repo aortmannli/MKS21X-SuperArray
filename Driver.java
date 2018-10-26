@@ -76,11 +76,14 @@ public class Driver{
   System.out.println("Testing remove.");
   System.out.println(SA);
   System.out.println(SA.remove(5)+"\n"+ SA);
+  System.out.println(SA.size());
   System.out.println("Index: 90 should print null Value: "+SA.remove(90)+"\n"+ SA);
+  System.out.println(SA.size());
   System.out.println("\n \n");
   System.out.println(SA);
-  System.out.println("Value removed: yeet" + SA.remove("yeet")+"\n"+ SA+"\n");
-  System.out.println("Value removed: 666" + SA.remove("666")+"\n"+ SA+"\n");
+  System.out.println(SA.size());
+  System.out.println("Value removed: yeet should return true " + SA.remove("yeet")+"\n"+ SA+"\n");
+  System.out.println("Value removed: 666 yeet should return true " + SA.remove("666")+"\n"+ SA+"\n");
   System.out.println("Value: line should return false           "+SA.remove("line")+"\n"+ SA);
   }
 }
