@@ -106,16 +106,20 @@ public class SuperArray{
 		}
 
 		public void add(int index ,String str){
-			if (data.length == size()) resize();
-			if (index < 0 || index >= size()){
-	      throw new IndexOutOfBoundsException("Index cannot be " + index);
-	    }
-	    for (int i = size(); i > 0; i--){
-	      if (i > index) data[i] = data[i - 1];
-	    }
-	    data[index] = str;
-	    size++;
-	    }
+
+
+			if (0 <= index && index <= size){
+				if (data.length == size()) resize();
+		    for (int i = size(); i > 0; i--){
+		      if (i > index) data[i] = data[i - 1];
+		    }
+		    data[index] = str;
+		    size++;
+	    }else{
+				throw new IndexOutOfBoundsException("Index cannot be " + index);
+			}
+		 }
+
 
 		public String remove(int index){
 		if (data.length == size()) resize();
