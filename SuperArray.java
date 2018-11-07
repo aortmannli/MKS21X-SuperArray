@@ -23,14 +23,14 @@ public class SuperArray{
 	  }
 
 	  public boolean isEmpty(){
-	    return size ==0;
+	    return size==0;
 	  }
 
 	  public boolean add(String str){
-			if (data.length <= size) resize();
-	    data[size()] = str;
-	    size++;
-			return true;
+		 if (size() == data.length)resize();
+		 data[size()] = str;
+		 size++;
+		 return true;
 	  }
 
 	  public String toString(){
@@ -43,35 +43,44 @@ public class SuperArray{
 	  }
 
 		public String toStringDebug(){
-    String out = "{";
-    for (String i:  data){
-      out += i + ", ";
-    }
-    return out.substring(0,out.length()-2) + "}";
+			String  out= "{";
+     for (int i = 0; i < data.length; i++) {
+       out += data[i] + ", ";
+     }
+     if (!out.equals("{")) {
+       out = out.substring(0,out.length() - 2);
+     }
+     out += "}";
+     return out;
   }
+
+
 
 	  public String get(int index){
 			if (index < 0 || index >= size()){
 	      throw new IndexOutOfBoundsException("Index cannot be " + index);
 	    }
-	    return ""+ data[index];
+	    return data[index];
 	  }
 
 	  public String set(int index, String str){
 			if (index < 0 || index >= size()){
 	      throw new IndexOutOfBoundsException("Index cannot be " + index);
-	    }
-	    data[index] = str;
-			return "Yay! \n index: " + index + " \n value: " + str;
-	  }
+	    }else{
+				String oldboi = data[index];
+		    data[index] = str;
+				return oldboi;
+	  	}
+		}
 
 		private void resize() {
-			String[] newData = new String[(size + 1) * 2];
+			String[] newData = new String[size() * 2 + 1];
 			for (int i = 0; i < size(); i++){
 				newData[i] = data[i];
 			}
 			this.data = newData;
     }
+
 
 		public boolean contains(String target){
 			for (int  i = 0; i < size(); i++){
@@ -96,7 +105,7 @@ public class SuperArray{
 
 		public int lastIndexOf(String target){
 			if (this.contains(target)){
-				for (int  i = size()-1; i > -1; i--){
+				for (int  i = size()-1; i >= 0 ; i--){
 					if (get(i).equals(target)){
 		        return i;
 		      }
@@ -105,39 +114,39 @@ public class SuperArray{
 			return -1;
 		}
 
-		public void add(int index ,String str){
-
-
-			if (0 <= index && index <= size){
-				if (data.length == size()) resize();
-		    for (int i = size(); i > 0; i--){
-		      if (i > index) data[i] = data[i - 1];
-		    }
-		    data[index] = str;
-		    size++;
-	    }else{
-				throw new IndexOutOfBoundsException("Index cannot be " + index);
-			}
-		 }
-
-
-		public String remove(int index){
-		if (data.length == size()) resize();
-		if (index < 0 || index >= size()){
-			throw new IndexOutOfBoundsException("Index cannot be " + index);
-		}
-    String str = data[index];
-    for (int i = index; i < size()-1; i++){
-      data[i] = data[i+1];
+		public void add(int index, String str) {
+    if (index < 0 || index > size()) {
+      throw new IndexOutOfBoundsException("Index given is out of range for add method");
+    } else {
+      if (size() == data.length) resize();
+      for (int i = size() - 1; i >= index; i--) {
+        data[i+1] = data[i];
+      }
+      data[index] = str;
+      size++;
     }
-    size--;
-    return "Index:  "+index+"    Value removed:  "+str;
-		}
+  }
+
+
+		 public String remove(int index) {
+	     if (index < 0 || index > size()) {
+	       throw new IndexOutOfBoundsException("Index given is out of range for remove method");
+	     } else {
+	       String out = data[index];
+	       for (int i = index; i < size() - 1; i++) {
+	         data[i] = data[i+1];
+	       }
+	       size--;
+	       return out;
+	     }
+   	}
+
 
 		public boolean remove(String str){
 			if (!this.contains(str)) return false;
 			remove(this.indexOf(str));
 			return true;
 		}
+
 
 	}
